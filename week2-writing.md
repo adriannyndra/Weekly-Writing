@@ -73,3 +73,90 @@ Bisa dilihat dari gambar diatas, pemanggilan function bisa dilakukan dengan menu
 Parameter fungsi tercantum di dalam tanda kurung () dalam definisi fungsi.
 Argumen adalah nilai yang diterima oleh fungsi saat dipanggil.
 Di dalam fungsi, argumen (parameter) berperilaku sebagai variabel lokal.
+
+## Data Types
+
+<b> Apa yang dimaksud dengan Data Types? </b>
+
+Semua bahasa pemrograman memiliki data structure bawaan, tetapi hal berbeda dari satu bahasa ke bahasa lainnya. Saya akan mencoba menjelaskan struktur data bawaan yang tersedia di JavaScript dan properti apa yang mereka miliki.
+
+- <b> Strings </b>
+
+String berguna untuk menampung data yang dapat direpresentasikan dalam bentuk teks. Beberapa operasi yang paling sering digunakan pada string adalah memeriksa panjangnya, membangun dan menggabungkannya menggunakan operator string + dan +=, memeriksa keberadaan atau lokasi substring dengan metode indexOf(), atau mengekstrak substring dengan substring () method
+
+Cara pendeklarasian string bisa menggunakan cara berikut
+
+```
+const string1 = "A string primitive";
+const string2 = 'Also a string primitive';
+const string3 = `Yet another string primitive`;
+```
+
+bisa juga dideklarasikan sebagai Object menggunakan konstruktor String()
+
+```
+const string4 = new String("A String object");
+```
+
+- <b> Number </b>
+
+Number adalah object wrapper primitif yang digunakan untuk mewakili dan memanipulasi angka seperti 37 atau -9,25.
+Konstruktor Number berisi constants dan method untuk bekerja dengan angka. Nilai dari tipe lain dapat dikonversi ke angka menggunakan fungsi Number().
+
+Begini cara kerja pengintepretasian Number
+
+```
+123; // one-hundred twenty-three
+123.0; // same
+123 === 123.0; // true
+```
+
+ketika digunakan dengan fungsi, Number(value) merubah string atau tipe lain menjadi tipe Number. Jika tidak bisa dikonversi outputnya akan menjadi NaN.
+When used as a function, Number(value) converts a string or other value to the Number type. If the value can't be converted, it returns NaN.
+
+```
+Number("123"); // returns the number 123
+Number("123") === 123; // true
+
+Number("unicorn"); // NaN
+Number(undefined); // NaN
+```
+
+- <b> Math </b>
+
+Math adalah object bawaan JS yang memiliki properti dan metode untuk constant dan fungsi matematika. Ini bukan objek fungsi.
+Matematika bekerja dengan data type <b> Number </b>. Ini tidak bekerja dengan BigInt.
+
+Beberapa contoh fungsinya:
+```
+Math.pow()
+Returns base x to the exponent power y (that is, xy).
+
+Math.random()
+Returns a pseudo-random number between 0 and 1.
+
+Math.round()
+Returns the value of the number x rounded to the nearest integer.
+
+Math.sign()
+Returns the sign of the x, indicating whether x is positive, negative, or zero.
+
+Math.sin()
+Returns the sine of x.
+
+Math.sinh()
+Returns the hyperbolic sine of x.
+
+Math.sqrt()
+Returns the positive square root of x.
+
+Math.tan()
+Returns the tangent of x.
+
+Math.tanh()
+Returns the hyperbolic tangent of x.
+
+Math.trunc()
+Returns the integer portion of x, removing any fractional digits.
+```
+Contoh 
