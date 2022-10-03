@@ -138,25 +138,172 @@ Returns a pseudo-random number between 0 and 1.
 Math.round()
 Returns the value of the number x rounded to the nearest integer.
 
-Math.sign()
-Returns the sign of the x, indicating whether x is positive, negative, or zero.
-
-Math.sin()
-Returns the sine of x.
-
-Math.sinh()
-Returns the hyperbolic sine of x.
-
 Math.sqrt()
 Returns the positive square root of x.
 
 Math.tan()
 Returns the tangent of x.
 
-Math.tanh()
-Returns the hyperbolic tangent of x.
-
-Math.trunc()
-Returns the integer portion of x, removing any fractional digits.
 ```
-Contoh 
+
+dan masih banyak lagi.
+
+Contoh penggunaannya:
+
+```
+function random(min, max) {
+  const num = Math.floor(Math.random() * (max - min + 1)) + min;
+  return num;
+}
+
+random(1, 10);
+```
+
+code diatas mengembalikan random integer dari dua batas (minimum dan maksimum) menggunakan math.floor dan math.random
+
+- <b> Primitive & Non-Primitive </b>
+  
+Apa yang dimaksud dengan tipe data primitif dan non primitif? Kedua kategori ini mewakili dua cara berbeda tipe data ini disimpan ke dalam memori. Primitif disimpan berdasarkan nilai sedangkan Non-Primitif (Objek) disimpan berdasarkan referensi.
+  
+- Primitive
+
+  Numbers,
+  Strings,
+  Booleans,
+  undefined,
+  null,
+  
+- Non-Primitive (referred to collectively as Objects)
+
+  Objects,
+  Arrays,
+  Functions
+  
+## DOM (Document Object Model)
+  
+DOM merupakan singkatan dari Document Object Model. Artinya, dokumen (HTML) yang dimodelkan dalam sebuah objek. Objek dari dokumen ini menyediakan sekumpulan fungsi dan atribut/data yang bisa kita manfaatkan dalam membuat program Javascript. Inilah yang disebut API (Application Programming Interface).
+
+<b> Bagaimana cara menggunakan DOM? </b>
+
+Objek DOM di javascript bernama document. Objek ini berisi segala hal yang kita butuhkan untuk memanipulasi HTML.
+Jika kita coba ketik document pada console Javascript, maka yang akan tampil adalah kode HTML.
+
+![image](https://user-images.githubusercontent.com/114375139/193537785-6877f126-98e4-46c2-b705-1082827860b3.png)
+
+Di dalam objek document, terdapat fungsi-fungsi dan atribut yang bisa kita gunakan untuk memanipulasi dokumen HTML.
+Sebagai contoh fungsi `documen.write()`
+Fungsi ini digunakan untuk menulis sesuatu ke dokumen HTML. Contohnya seperti:
+
+```
+document.write("Hello World");
+document.write("<h2>Saya Sedang Belajar Javascript</h2>");
+```
+
+Hasilnya: <br>
+
+![image](https://user-images.githubusercontent.com/114375139/193538683-0cd9ff0e-08cc-47b3-b618-335d38949126.png)
+
+<b> Mengakses Elemen tertentu dengan DOM </b>
+
+Objek document adalah model dari dokumen HTML. Objek ini berisi kumpulan fungsi dan atribut berupa objek dari elemen HTML yang bisa digambarkan dalam bentuk pohon seperti ini:
+
+![image](https://user-images.githubusercontent.com/114375139/193539088-8ecfd619-10ca-42c8-82a3-4fe91482f69e.png)
+
+Struktur pohon ini akan memudahkan kita dalam menggunakan elemen tertentu.
+Contoh jika ingin mengakses objek <head> dan <body>:
+  
+```
+  // mengakses objek head
+document.head;
+
+// mengakses objek body
+document.body;
+
+// melihat panakang judul pada objek title
+document.title.length
+```
+  
+Kita juga dapat mengakses elemen spesifik dengan cara-cara berikut:
+  
+```
+getElementById() fungsi untuk memilih elemen berdasarkan atribut id.
+  
+getElementByName() fungsi untuk memilih elemen berdasarkan atribut name.
+  
+getElementByClassName() fungsi untuk memilih elemen berdasarkan atribut class.
+ 
+getElementByTagName() fungsi untuk memilih elemen berdasarkan nama tag.
+  
+getElementByTagNameNS() fungsi untuk memilih elemen berdasarkan nama tag.
+  
+querySelector() fungsi untuk memilih elemen berdasarkan query.
+  
+querySelectorAll() fungsi untuk memilih elemen berdasarkan query.
+  
+dan lain-lain.
+```
+  
+  <b> Manipulating Styles </b>
+
+Kita juga dapat merubah style pada html seperti layaknya css, menggunakan javascript.
+  
+```
+paragraf[0].style.color = "red"
+```
+
+Hasilnya seperti ini:
+  
+![image](https://user-images.githubusercontent.com/114375139/193541257-edc06228-fe51-40cd-86db-1fc172343179.png)
+  
+  
+  <b> Traversing Elements </b>
+  
+Developer JavaScript yang baik perlu mengetahui cara traversing DOM, ini adalah tindakan dimana kita dapat memilih elemen dari elemen lain.
+
+  - <b> Traversing Downwards </b>
+
+Ada dua cara untuk traversal downwards
+
+  - `QuerySelector` atau `querySelectorAll`
+  - `children`
+
+Contoh Analogi mencari ruangan dalam rumah, lebih cepat seperti ini daripada mencari ruangan dari luar rumah(the document):
+  
+```
+<div class="component">
+  <h2 class="component__title">Component title</h2>
+</div>
+```
+
+```
+const component = document.querySelector('.component')
+const title = component.querySelector('.component__title')
+
+console.log(title) // <h2 class="component__title"> ... </h2>
+```
+  
+  
+  <b> Traversing Upwards </b>
+  
+Seperti Downwards, upwards juga memiliki 2 metode
+
+- `parentElement`
+- `closest`
+
+parentElement adalah property yang bisa memilih sebuah Parent element, parent element adalah element yang memiliki/menutupi current element, contoh:
+  
+```
+const component = document.querySelector('.component')
+const title = component.querySelector('.component__title')
+
+console.log(title) // <h2 class="component__title"> ... </h2>
+```
+
+```
+const firstListItem = document.querySelector('li')
+const list = firstListItem.parentElement
+
+console.log(list)
+// <ul class="list">...</ul>
+```
+
