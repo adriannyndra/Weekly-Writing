@@ -10,7 +10,6 @@ Berikut materi yang telah saya pelajari pada minggu ke-3 (Web Development Advanc
  - Web Storage
  
 
-## JavaScript Intermediate
 
 <h2> Array's </h2>
 
