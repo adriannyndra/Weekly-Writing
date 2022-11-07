@@ -223,9 +223,9 @@ app.get('/hello', (req res) => {
   let name = req.query.name
   let umur = req.query.umur
   res.status(200).json({
-    name : "Mandela",
-    umur : 21,
-    alamat : "bandung",
+    name : "nama",
+    umur : 25,
+    alamat : "kota",
   })
 })
 ```
@@ -233,14 +233,11 @@ app.get('/hello', (req res) => {
 ```
 app.use("/hello", hello)
 const hello = require('express').Router();
-hello.get('/denna', (req, res) => {
-  res.send("hello saya adalah denna")
+hello.get('/rajqi', (req, res) => {
+  res.send("hello saya adalah rajqi")
 })
-hello.get('/abil', (req, res) => {
-  res.send("hello saya adalah abil")
-})
-hello.get('/rodhi', (req, res) => {
-  res.send("hello saya adalah rodhi")
+hello.get('/fakhri', (req, res) => {
+  res.send("hello saya adalah fakhri")
 })
 ```
 ### Express Middleware
