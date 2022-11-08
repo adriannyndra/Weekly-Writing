@@ -208,6 +208,39 @@ Tanggapan terhadap perintah autentikasi dapat dikategorikan ke dalam:
 ### Token Based Authentication
 - Terdapat banyak aplikasi web menggunakan JSON Web Token (JWT) dibandingkan sessions untuk authentication. Pada aplikasi token based, server akan membuat JWT dengan rahasia dan mengirim JTW kepada client. Client kemudian menyimpan JWT (biasanya pada local storage) dan memasukan JWT kedalam headers untuk setiap request yang dilakukan oleh client.
 
+## Web Session
+Sesi web mengacu pada serangkaian interaksi pengguna selama jangka waktu tertentu. Data sesi disimpan di sisi server dan dikaitkan dengan ID sesi.
+Pikirkan sesi sebagai memori jangka pendek untuk aplikasi web. Pada latihan berikutnya, kami akan menjelaskan di mana pengidentifikasi sesi ini disimpan sehingga browser (klien) dapat terus mengambil data sesi yang sama di antara pemuatan halaman yang berbeda.
+
+## Session & Cookie
+Agak kikuk bagi klien untuk mengingat untuk menempelkan ID sesi ke setiap permintaan. Karena itu, ID sesi sering disimpan di sisi klien dalam bentuk cookie sesi.
+Cookie adalah potongan kecil data — file teks berukuran maksimal 4kb — browser menyimpan yang secara otomatis dikirim dengan permintaan HTTP ke aplikasi web. Cookie disetel oleh header respons HTTP dalam pasangan nilai kunci:
+```
+Set-Cookie: key=Velue
+```
+```
+Set-Cookie: sessionID=34jgL79b
+```
+Ini kira-kira bagaimana sesi diimplementasikan dengan cookie:
+1. Seorang pengguna pergi ke sebuah situs. Server web membuat sesi dan ID sesi.
+2. Dalam respons server, ini memberi tahu browser untuk menyimpan cookie dengan ID sesi (tidak boleh menyertakan informasi pribadi apa pun).
+3. Cookie ID sesi secara otomatis dilampirkan ke setiap permintaan HTTP berikutnya ke server.
+4. Saat server membaca cookie ID sesi yang dikirim dengan permintaan HTTP berikutnya, server akan mengembalikan data sesi yang terkait dengan ID tersebut.
+5. Proses berlanjut selama sesi aktif.
+6. Cookie sesi dan ID sesi kedaluwarsa setelah pengguna menutup browser, logout, atau durasi sesi yang telah ditentukan (yaitu satu jam) berlalu.
+
+## Cookie Security
+Cookie sering kali menyimpan informasi sensitif, terutama saat digunakan dalam manajemen sesi. Cookie juga digunakan untuk menyimpan preferensi atau riwayat pribadi pengguna, yang juga harus tetap aman. 
+
+Langkah pertama untuk mengamankan cookie dapat menambahkan tanggal kedaluwarsa atau durasi sehingga cookie tidak bertahan lebih lama dari yang dibutuhkan.Kami dapat menentukan informasi tersebut melalui header Set-Cookie dalam respons HTTP seperti:
+```
+Set-Cookie: Key=Value, expirea=monday, 29-Nov-2021 07:30:10 GMT
+```
+Atribut HttpOnly untuk header Set-Cookie memastikan bahwa data cookie tidak dapat diakses oleh skrip yang menjalankan sisi klien. Ini membantu mencegah serangan Cross-Site Scripting (XSS) yang mencoba mencuri cookie sesi dan mengambil alih milik korban. sesi, yang sangat umum.
+```
+Set-Cookie: Key=Value, expired=monday, 29-Nov-2021 07:30:10 GMT; HTTPOnly
+```
+
 ## Sequelize 
 ### Apa itu Sequelize?
 Sequelize adalah ORM (Object Relational Mapping) Node JS yang berbasis promise. Sequelize mendukung sebagian besar relational Database seperti MySQL, PostgresQL, MariaDB, SQLite dan Miscrosoft SQL Server.
