@@ -111,3 +111,9 @@ app.delete('/users/:id', (req, res) => {
 ## Docker
 ### Apa itu Docker?
 Docker adalah layanan yang menyediakan kemampuan untuk mengemas dan menjalankan sebuah aplikasi dalam sebuah lingkungan terisolasi yang disebut dengan container. Dengan adanya isolasi dan keamanan yang memadai memungkinkan kamu untuk menjalankan banyak container di waktu yang bersamaan pada host tertentu.
+
+### Container VS Virtual Machines
+
+![image](https://user-images.githubusercontent.com/114375139/201895777-d959c0b1-8b28-4036-8e6c-7d0758546ba9.png)
+
+Pembeda utama antara Container dan Virtual Machine adalah bahwa mesin virtual memvirtualisasikan seluruh mesin hingga ke lapisan perangkat keras dan kontainer hanya memvirtualisasikan lapisan perangkat lunak di atas level sistem operasi.
