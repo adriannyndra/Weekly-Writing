@@ -117,3 +117,10 @@ Docker adalah layanan yang menyediakan kemampuan untuk mengemas dan menjalankan 
 ![image](https://user-images.githubusercontent.com/114375139/201895777-d959c0b1-8b28-4036-8e6c-7d0758546ba9.png)
 
 Pembeda utama antara Container dan Virtual Machine adalah bahwa mesin virtual memvirtualisasikan seluruh mesin hingga ke lapisan perangkat keras dan kontainer hanya memvirtualisasikan lapisan perangkat lunak di atas level sistem operasi.
+
+### Docker Commands
+
+- docker pull: Download image dari docker hub
+- docker images: Melihat kumpulan images yang sudah terdownload
+- docker run: Menjalankan container
+- docker ps: Melihat container yang berjalan
